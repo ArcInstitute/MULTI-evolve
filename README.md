@@ -14,7 +14,7 @@ Official repository for MULTI-evolve (model-guided, universal, targeted installa
 
 We used PyTorch 2.6.0 with CUDA 12.4 for our experiments. To run the scripts in this repository, we recommend using a conda environment.  Clone the repository, navigate to the root directory, and run the following commands to install the environment and package:
 ```bash
-cd multievolve
+cd MULTI-evolve
 conda env create -f env.yml
 conda activate multievolve
 pip install -e .
@@ -26,26 +26,32 @@ python -c "import torch; print(torch.__version__)"
 
 Then, run the following command, replacing `<VERSION>` with your torch version (e.g., `2.6.0+cu124`):
 ```bash
-pip install torch-cluster==1.6.3 torch-geometric==2.6.1 torch-scatter==2.1.2 torch-sparse==0.6.18 torch-spline-conv==1.2.2 -f https://data.pyg.org/whl/torch-<VERSION>.html
+pip install torch-cluster torch-scatter torch-sparse torch-spline-conv torch-geometric \
+    --find-links https://data.pyg.org/whl/torch-<VERSION>.html \
+    --no-build-isolation
 ```
 
 For example, if your torch version is 2.6.0+cu124, you would run:
 ```bash
-pip install torch-cluster==1.6.3 torch-geometric==2.6.1 torch-scatter==2.1.2 torch-sparse==0.6.18 torch-spline-conv==1.2.2 -f https://data.pyg.org/whl/torch-2.6.0+cu124.html
+pip install torch-cluster torch-scatter torch-sparse torch-spline-conv torch-geometric \
+    --find-links https://data.pyg.org/whl/torch-2.6.0+cu124.html \
+    --no-build-isolation
 ```
 
 ### Mac ARM-based
 
 We used PyTorch 2.2.2 for our experiments. To run the scripts in this repository, we recommend using a conda environment.  Clone the repository, navigate to the root directory, and run the following commands to install the environment and package:
 ```bash
-cd multievolve
+cd MULTI-evolve
 conda env create -f env_mac.yml
 conda activate multievolve
 pip install -e .
 ```
 Then, run:
 ```bash
-pip install torch-cluster torch-geometric torch-scatter torch-sparse torch-spline-conv -f https://data.pyg.org/whl/torch-2.2.2+cpu.html
+pip install torch-cluster torch-scatter torch-sparse torch-spline-conv torch-geometric \
+    --find-links https://data.pyg.org/whl/torch-2.2.2+cpu.html \
+    --no-build-isolation
 ```
 
 ## Usage
