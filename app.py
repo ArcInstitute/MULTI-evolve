@@ -70,9 +70,23 @@ def setup_page():
                 padding: 0.75rem 1rem;
             }
 
-            /* Tighter tab bar spacing */
+            /* Tab styling — bordered pill labels */
             .stTabs [data-baseweb="tab-list"] {
                 gap: 0.5rem;
+                border-bottom: 1px solid #e0e0e0;
+                padding-bottom: 0;
+            }
+            .stTabs [data-baseweb="tab"] {
+                border: 1px solid #e0e0e0;
+                border-bottom: none;
+                border-radius: 8px 8px 0 0;
+                padding: 0.5rem 1rem;
+                background-color: #f9f9f9;
+            }
+            .stTabs [aria-selected="true"] {
+                background-color: #ffffff;
+                border-bottom: 2px solid #ffffff;
+                font-weight: 600;
             }
         </style>
     """, unsafe_allow_html=True)
@@ -624,7 +638,7 @@ def main():
     
     # Create tabs for different functionalities
     tab5, tab1, tab2, tab3, tab4 = st.tabs([
-        "About:",
+        "About",
         "Train Models", 
         "Propose Multi-mutants", 
         "Generate MULTI-assembly Oligos",
