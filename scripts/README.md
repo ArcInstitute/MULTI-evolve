@@ -142,7 +142,7 @@ To perform the protein language model zeroshot ensemble approach implemented in 
 - ```--pdb-files```: Path to the PDB/CIF structure file. Can be a single file or a comma-separated list of files (e.g. ```model_0.cif,model_1.cif```).
 - ```--variants```: Number of variants to nominate per method in the ensemble. Note, there are a total of 4 methods in the ensemble.
 - ```--excluded-positions```: Comma-separated list of positions to exclude from mutation (e.g. ```1,5,20```). If no positions are to be excluded, don't include this argument.
-- ```--normalizing-method```: Method for normalizing fold-change scores to generate z-scores. Options for grouping scores for normalization are 'aa_switch' and 'new_aa'. 'aa_switch' refers to grouping scores by the specific amino acid switch (e.g. A->L). 'new_aa' refers to grouping scores by the new amino acid provided by the respective mutation (e.g. if the mutation is A10P, it is grouped with all P (Proline) mutations).
+- ```--normalizing-method```: Method for normalizing fold-change scores to generate z-scores. Options for grouping scores for normalization are 'aa_substitution_type' and 'aa_mutation'. 'aa_substitution_type' refers to grouping scores by the specific amino acid switch (e.g. A->L). 'aa_mutation' refers to grouping scores by the new amino acid provided by the respective mutation (e.g. if the mutation is A10P, it is grouped with all P (Proline) mutations).
 
 ```bash
 conda activate multievolve
@@ -153,7 +153,7 @@ plm_zeroshot_ensemble.py \
 --pdb-files apex.cif \
 --variants 24 \
 --excluded-positions 1,14,41,112 \
---normalizing-method aa_switch
+--normalizing-method aa_substitution_type
 ```
 
 The script will output a CSV file (```plm_zeroshot_ensemble_nominated_mutations.csv```) containing a list of the proposed variants and the methods that nominated those variants.
