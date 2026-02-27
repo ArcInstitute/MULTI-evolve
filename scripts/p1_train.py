@@ -93,7 +93,7 @@ def main():
 
     try:
         # Define splits
-        fold_splitter = KFoldProteinSplitter(protein_name, training_dataset_fname, wt_files, csv_has_header=True, use_cache=True, y_scaling=False, val_split=0.15)
+        fold_splitter = KFoldProteinSplitter(protein_name, training_dataset_fname, wt_files, csv_has_header=True, use_cache=True, y_scaling=True, val_split=0.15)
         splits = fold_splitter.generate_splits(n_splits=5)
     except Exception as e:
         print(f"Error generating splits: {e}")
